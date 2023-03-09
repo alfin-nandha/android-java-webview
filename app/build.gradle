@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.promaydo.roosen_webview'
+    namespace 'com.spearheart.webview'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.promaydo.roosen_webview"
+        applicationId "com.spearheart.webview"
         minSdk 21
         targetSdk 32
         versionCode 1

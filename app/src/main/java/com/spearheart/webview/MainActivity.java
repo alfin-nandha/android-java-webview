@@ -1,35 +1,30 @@
-package com.promaydo.roosen_webview;
+package com.spearheart.webview;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.promaydo.roosen_webview.databinding.ActivityMainBinding;
+import com.spearheart.webview.databinding.ActivityMainBinding;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private WebView webView;
     private ProgressBar bar;
     private SwipeRefreshLayout swipe;
+    private String TAG = "webview";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
 
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                Log.d(TAG, "Received webview error: " + errorCode + " - " + description + " ; " + failingUrl);
 
-                webView.loadUrl("file:///android_asset/error.html");
             }
 
             public void onLoadResource(WebView view, String url) { //Doesn't work
@@ -111,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAppCacheEnabled(true);
-        webView.loadUrl("https://www.webroosen.com/");
+        webView.loadUrl("http://54.173.130.190:7000/");
         swipe.setRefreshing(true);
     }
 

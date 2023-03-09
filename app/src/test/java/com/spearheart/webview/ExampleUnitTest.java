@@ -1,4 +1,4 @@
-package com.promaydo.roosen_webview;
+package com.spearheart.webview;
 
 import org.junit.Test;
 
